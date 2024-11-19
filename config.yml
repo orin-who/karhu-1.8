@@ -1,0 +1,191 @@
+# 
+#  _  __          _____  _    _ _    _ 
+# | |/ /    /   |  __ | |  | | |  | |
+# | ' /    /    | |__) | |__| | |  | |
+# |  <    / /  |  _  /|  __  | |  | |
+# | .   / ____ | |  | |  | | |__| |
+# |_|_/_/    __|  __|  |_|____/ 
+license-key:
+version-to-download: autoupdate
+Prefix: '&8[&9ALERT&8] '
+MiscPrefix: '&8[&9ALERT&8] '
+experimental-alert-symbol: '&aΔ'
+AlertsMessage: '&f%player% &7has failed &9%check% &7( x&9%vl%&7 )'
+ClientCheckMessage: '&f%player% &7has joined using &7( &9%brand%&7 )'
+AntiCrashMessage: '&e%player% &7was kicked for &esuspicious activity &7( &e%debug%&7
+  )'
+NetHandlerMessage: '&e%player% &7was kicked for &esuspicious network activity &7(
+  &6%debug%&7 )'
+VehicleHandlerMessage: '&f%player% &7sent a vehicle packet in an invalid state'
+AlertsHoverableMessage: |-
+  &f%info%
+  (Ping: %ping% TPS: %tps%) &9(Click to teleport)
+AlertsHoverableMessageHighlightColor: '&9'
+GuiHighlightColor: '&l&9'
+AlertsClickCommand:
+  command: /tp %player%
+spigot-api-alert: true
+hoverless-alert: false
+alert-delay: 50
+Punishments:
+  broadcast: true
+  message: |-
+    &7&m----------------------------------------------
+    &c&l✗ &4&lANTI BASTOS DETECTOR
+    &cDETECTION &7%player% has been caught lacking!
+    &7&m----------------------------------------------
+  command-delay-seconds: 0
+  banCommand:
+  - tempban %player% 1h Unfair Advantage -s
+  kickCommand:
+  - kick %player% Unfair Advantage -s
+PunishCommand:
+- tempban %player% 1h Unfair Advantage -s
+server-name: OxyriseFactions
+autoban: true
+bungee:
+  execute-ban-command-in-bungee: false
+  alerts: false
+  alert-post-vl-rate: 10
+anticrash:
+  enabled: false
+  move-spam: true
+  place-spam: true
+  large-move: true
+  window-spam: true
+  payload-spam: true
+  slot-spam: true
+  arm-spam: true
+  kick-message: 'java.net.IOException Connection timed out: no further information'
+nethandler:
+  enabled: true
+  spoof: true
+  delay: true
+  kick-message: 'java.net.IOException Connection timed out: no further information'
+  transaction-order: '&c%player% &7ignored order of transactions &7first was &a%first%
+    &7sent §c%sent%'
+  cancel-keepalives-alert: '&c%player% &7cancelled keepalive packets with total of
+    &a%invalid% / %total%'
+  cancel-transactions-alert: '&c%player% &7cancelled transaction packets with total
+    of &a%invalid% / %total%'
+  own-keepalives-alert: '&c%player% &7sent own keepalives &7total of &a%invalid% /
+    %total%'
+  own-transactions-alert: '&c%player% &7sent own transactions &7total of &a%invalid%
+    / %total%'
+  cancel-and-own-kick-message: 'java.net.IOException Connection timed out: no further
+    information'
+  wrong-order-kick-message: Timed out (%first% != %received%)
+vehicle-handler:
+  unmount: false
+unallowed-brands:
+  brands: |-
+    Vivecraft
+    Crystalware
+  kick-msg: This client is unallowed on our server!
+pullback:
+  enabled: true
+  type: generic
+client-check: true
+bypass-permission: false
+anticheat-name: BSS
+high-ping-kick:
+  enabled: true
+  max-ping: 1000
+  ping-over-max-ticks-before-kick: 250
+  kick-message: Your ping constantly too high, do something
+anti-vpn:
+  enabled: true
+  proxy-check: true
+  malicious-check: true
+  bypass:
+  - UUID1
+  - UUID2
+  kick-message: |-
+    &e&l✧ &6&lOxyrise&f&lPvP &e&l✧
+
+    &7Usage of VPN is prohibited!
+discord:
+  enabled: true
+  alert-webhook-url: https://discord.com/api/webhooks/1096922080777339011/3BO6yovO2vvoMmbTu_N8GIGGL7Sz5JwT9l8Fc52Wtzl8AQVa-l2iKMpLk3S2LaKHzgbS
+  crash-webhook-url: https://discord.com/api/webhooks/1096919159171973350/D7avfdcEpJGCyYYS0jL8e5iN7SrpS8MavPJPLOYwt-adTo9YepGfMv2aUHk3pSNuKR_4
+  show-world: true
+  show-statistics: true
+  show-icon-thumbnail: true
+  post-vl-rate: 10
+  send-alerts: true
+  send-bans: true
+packetevents:
+  injectAsync: true
+  ejectAsync: true
+  injectEarly: true
+  kickUninjected: true
+  uninjected-kick-message: '&cWe''ve failed to load your data, please reconnect!'
+commands:
+  alerts:
+    enabled: '&4&l[!] &aAlerts on!'
+    disabled: '&4&l[!] &cAlerts off!'
+  help: |-
+    &3&l> &b&lKarhu &3&l<
+
+    &b* &7/karhu alerts - check alerts
+    &b* &7/karhu GUI - use GUI
+    &b* &7/karhu logs - check logs from database
+    &b* &7/karhu pastelogs - paste all logs to hastebin
+    &b* &7/karhu recentbans - view recentbans
+    &b* &7/karhu manualban - ban cheater manually
+    &b* &7/karhu stats - view server Timings
+    &b* &7/karhu sessionlogs - check logs that havent expired yet in the vl system
+    &b* &7/karhu info <player> - see info about player
+    &b* &7/karhu version - check Karhu version
+    &b* &7/karhu reload - reload config
+  banwave: |-
+    &3&l> &b&lKarhu &3&l<
+
+    &b* &7/karhu banwave gui - open management gui
+    &b* &7/karhu banwave list - see players that will be banned
+  logs:
+    ban-color: '&c'
+    highlight-color: '&b'
+  no-permission: '&cYou don''''t have required permissions!'
+default-version: '1_8'
+database: FlatFile
+mysql:
+  user: u93176_DLywGbPh6a
+  address: s93176_karhudb
+  password: lNfi=ZDGo9mgFV9zRdqZ@yeN
+  database: s93176_karhudb
+  port: 3306
+mongo:
+  host: 127.0.0.1
+  port: 27017
+  database: Karhu
+  authentication:
+    enabled: false
+    username: Karhu
+    password: karhubest
+noautoban-alert-symbol: '&c≠'
+reset-violations-on-leave: true
+disallow-flags-after-punishment: true
+cracked-server: true
+geyser:
+  stop-injecting-bedrock-players: false
+ghostblock-support:
+  enabled: true
+  lagback-on-walk: false
+  update-on-walk: true
+  liquid-dector: false
+server-lag-protection:
+  max-tick-length: 110
+  warning-message: '%prefix% &c%player% &fwould''ve flagged, but server lagged within
+    &c1 second&f.'
+  warning-display-type: CONSOLE
+async-kb-fix: false
+join-exempt-ticks: 100
+banwaves:
+  punish: configurethis %player%
+  messages:
+    caught: '&b%player% &3has been caught in the &bBan Wave!'
+    complete: '&bKarhu &3has finished the banwave. A total of &b%bans% players &3were
+      banned.'
+  broadcast-caught: true
+  broadcast-complete: true
